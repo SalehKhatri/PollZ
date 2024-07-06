@@ -60,6 +60,7 @@ const PollPage = () => {
       const hasVoted = localStorage.getItem(`poll_${pollData._id}`);
       if (hasVoted) {
         toast.error("You Have Already Voted!", { id: 'voted' });
+        setSelectedOption(null);
         return;
       }
 
@@ -120,7 +121,7 @@ const PollPage = () => {
   }
 
   if (!pollData) {
-    return <div className="w-[80%] md:w-1/2 shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)] p-6 bg-gray-900 rounded-lg flex justify-center items-center"  ref={pollRef}><ClipLoader color="#9333ea" /></div>;
+    return <div className="w-[90%] md:w-1/2 shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)] p-6 bg-gray-900 rounded-lg flex justify-center items-center"  ref={pollRef}><ClipLoader color="#9333ea" /></div>;
   }
 
   const { question, options } = pollData;
@@ -165,7 +166,7 @@ const PollPage = () => {
                         htmlFor={`option${option.option}`}
                         className="flex-1 p-1 md:p-2 text-gray-300 bg-inherit focus:outline-none placeholder-gray-500 cursor-pointer font-Poppins"
                       >
-                        {option.option} <span className="text-gray-500">({option.votes} votes)</span>
+                        {option.option} <span className="text-white">({option.votes} votes)</span>
                       </label>
                     </motion.div>
                   ))}

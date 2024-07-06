@@ -91,7 +91,7 @@ const CreatePoll: React.FC = () => {
                   >
                     <input
                       type="text"
-                      className="flex-1 p-2 text-gray-300 bg-gray-800 border-2 border-purple-400 rounded-lg px-1 bg-inherit focus:outline-none placeholder-gray-500"
+                      className="flex-1 p-2 text-gray-300 bg-inherit focus:outline-none placeholder-gray-500 bg-gray-800 border-2 border-purple-400 rounded-lg px-1"
                       placeholder={`Option ${index + 1}`}
                       value={option}
                       onChange={(e) =>

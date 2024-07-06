@@ -51,7 +51,7 @@ const CreatePoll: React.FC = () => {
   };
 
   return (
-    <div className="w-[80%] md:w-1/2 shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)] p-6 bg-gray-900 rounded-lg">
+    <div className="w-[90%] md:w-1/2 shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)] p-6 bg-gray-900 rounded-lg">
       <div className="flex flex-col items-center justify-center mb-4">
         <h1
           className="font-Poppins text-2xl md:text-3xl text-purple-500 font-normal"
@@ -83,7 +83,7 @@ const CreatePoll: React.FC = () => {
                 {options.map((option, index) => (
                   <motion.div
                     key={index}
-                    className="flex items-center space-x-2 bg-gray-800 border-2 border-purple-400 rounded-lg px-1"
+                    className="flex items-center space-x-2 "
                     initial={{ opacity: 0, y: "20px" }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, height: 0 }}
@@ -91,7 +91,7 @@ const CreatePoll: React.FC = () => {
                   >
                     <input
                       type="text"
-                      className="flex-1 p-2 text-gray-300 bg-inherit focus:outline-none placeholder-gray-500"
+                      className="flex-1 p-2 text-gray-300 bg-gray-800 border-2 border-purple-400 rounded-lg px-1 bg-inherit focus:outline-none placeholder-gray-500"
                       placeholder={`Option ${index + 1}`}
                       value={option}
                       onChange={(e) =>

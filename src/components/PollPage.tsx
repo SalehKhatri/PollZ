@@ -208,7 +208,7 @@ const PollPage = () => {
                 </button>
               </div>}
               {takingScreenshot && <div className="flex font-semibold text-lg justify-end mt-4 text-purple-500 font-Quicksand">
-                <p>www.PollZ.com</p>
+                <p>pollzt.vercel.app</p>
                 </div>}
           </div>
         </>

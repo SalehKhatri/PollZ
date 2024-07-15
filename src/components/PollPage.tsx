@@ -6,8 +6,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { io, Socket } from "socket.io-client";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { IoIosShareAlt } from "react-icons/io";
-import ClipLoader from "react-spinners/ClipLoader";
 import {toPng} from "html-to-image";
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+
 
 import toast from "react-hot-toast";
 const baseApiUrl = import.meta.env.VITE_API_BASEURL
@@ -39,7 +41,7 @@ const PollPage = () => {
       try {
         const response = await GetPoll(id);
         if (response && response.status >= 200) {
-          setPollData(response.data);
+            setPollData(response.data);
         }
       } catch (error: any) {
         if (error.response.status === 404 || error.response.status>=300) setPollData(404);
@@ -121,8 +123,31 @@ const PollPage = () => {
   }
 
   if (!pollData) {
-    return <div className="w-[90%] md:w-1/2 shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)] p-6 bg-gray-900 rounded-lg flex justify-center items-center"  ref={pollRef}><ClipLoader color="#9333ea" /></div>;
-  }
+    return (
+      <div className="w-[90%] md:w-1/2 shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)] p-6 bg-gray-900 rounded-lg flex flex-col justify-center items-center space-y-4" ref={pollRef}>
+        <Skeleton width={250} height={40} borderRadius={8} baseColor="#4b0082" highlightColor="#1a1a1a" />
+        <div className="w-full space-y-3">
+          <Skeleton height={40} borderRadius={8} baseColor="#4b0082" highlightColor="#a243e8" />
+          <Skeleton height={40} borderRadius={8} baseColor="#4b0082" highlightColor="#a243e8" />
+        </div>
+        <div className="w-full">
+        <Skeleton height={40} borderRadius={8} baseColor="#4b0082" highlightColor="#a243e8" />
+        </div>
+        <div className="w-full flex justify-between items-center space-x-3 ">
+          <div className="flex space-x-2">
+          <Skeleton height={50} width={50} borderRadius={8} baseColor="#4b0082" highlightColor="#a243e8" />
+          <Skeleton height={50} width={50} borderRadius={8} baseColor="#4b0082" highlightColor="#a243e8" />
+          </div>
+          <Skeleton  width={100} borderRadius={3} baseColor="#4b0082" highlightColor="#a243e8" />
+        </div>
+        
+      </div>
+    );
+}
+
+
+
+
 
   const { question, options } = pollData;
 
